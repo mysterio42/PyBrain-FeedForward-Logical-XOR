@@ -2,7 +2,6 @@ import argparse
 
 from utils.data import xor_data
 from utils.model import build_feedforward
-from utils.train import train_model
 
 
 def parse_args():
@@ -16,16 +15,15 @@ def parse_args():
         else:
             raise argparse.ArgumentTypeError('Boolean value expected')
 
-
     parser = argparse.ArgumentParser()
 
-    parser.add_argument('--inp', type=int,required=True,
+    parser.add_argument('--inp', type=int, required=True,
                         help='FeedForward network Input Dimension')
-    parser.add_argument('--hidden', type=int,required=True,
+    parser.add_argument('--hidden', type=int, required=True,
                         help='FeedForward network Hidden Dimension')
-    parser.add_argument('--out', type=int,required=True,
+    parser.add_argument('--out', type=int, required=True,
                         help='FeedForward network Output Dimension')
-    parser.add_argument('--bias',type=str2bool,default=True,required=True,
+    parser.add_argument('--bias', type=str2bool, default=True, required=True,
                         help='Add Bias Unit to the network')
 
     parser.print_help()
@@ -38,6 +36,4 @@ if __name__ == '__main__':
 
     data = xor_data()
 
-    net = build_feedforward(args.inp, args.hidden, args.out,args.bias)
-    print(net)
-    # train_model(net, data)
+    net = build_feedforward(args.inp, args.hidden, args.out, args.bias)
