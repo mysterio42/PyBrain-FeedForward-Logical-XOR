@@ -2,6 +2,7 @@ import argparse
 
 from utils.data import xor_data
 from utils.model import build_feedforward
+from utils.train import train_model
 
 
 def parse_args():
@@ -37,3 +38,5 @@ if __name__ == '__main__':
     data = xor_data()
 
     net = build_feedforward(args.inp, args.hidden, args.out, args.bias)
+
+    train_model(net, data)
